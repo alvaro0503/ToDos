@@ -3,24 +3,22 @@
 
 var listaTareas = new Array();
 
-listaTareas = [	{'idTarea': 0, 'titulo': 'Regar las plantas', 'prioridad': 'urgente'},
-				{'idTarea': 2, 'titulo': 'Dormir', 'prioridad': 'diaria'},
-				{'idTarea': 3, 'titulo': 'Salir a comer', 'prioridad': 'mensual'}
+listaTareas = [{ 'idTarea': 0, 'titulo': 'Estudiar Javascript', 'prioridad': 'urgente' },
+{ 'idTarea': 2, 'titulo': 'Dormir', 'prioridad': 'diaria' },
+{ 'idTarea': 3, 'titulo': 'Salir a comer', 'prioridad': 'mensual' }
 ];
 
 var contador = 4
 
-function pintarTareas(pListaTareas)
-{
+function pintarTareas(pListaTareas) {
 
 	document.getElementById('notareas').innerHTML = ""
-	
+
 	var contenedor = document.getElementById('tareas')
 
-	contenedor.innerHTML = "";	
+	contenedor.innerHTML = "";
 
-	for (var i=0; i<pListaTareas.length; i++)
-	{
+	for (var i = 0; i < pListaTareas.length; i++) {
 		var articulo = document.createElement('article')
 
 		articulo.id = pListaTareas[i].idTarea
@@ -37,7 +35,7 @@ function pintarTareas(pListaTareas)
 
 		btnEliminar.title = "Eliminar"
 
-		btnEliminar.setAttribute("onclick" , "borrarTarea("+pListaTareas[i].idTarea+")")
+		btnEliminar.setAttribute("onclick", "borrarTarea(" + pListaTareas[i].idTarea + ")")
 
 		var textoEliminar = document.createTextNode('Eliminar')
 
