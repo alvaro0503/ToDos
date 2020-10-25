@@ -1,46 +1,35 @@
-var contador = 4
+var btnGuardar = document.getElementById('guardar')
 
-function pintarTareas(pListaTareas) {
+var selectorPrioridad = document.getElementById('prioridadSelect')
 
-    document.getElementById('notareas').innerHTML = ""
+var busqueda = document.getElementById('search')
 
-    var contenedor = document.getElementById('tareas')
-
-    contenedor.innerHTML = "";
-
-    for (var i = 0; i < pListaTareas.length; i++) {
-        var articulo = document.createElement('article')
-
-        articulo.id = pListaTareas[i].idTarea
-
-        articulo.className = pListaTareas[i].prioridad
-
-        var tituloTarea = document.createElement('h2')
-
-        var textoTarea = document.createTextNode(pListaTareas[i].titulo)
-
-        var btnEliminar = document.createElement('a')
-
-        btnEliminar.href = "#"
-
-        btnEliminar.title = "Eliminar"
-
-        btnEliminar.setAttribute("onclick", "borrarTarea(" + pListaTareas[i].idTarea + ")")
-
-        var textoEliminar = document.createTextNode('Eliminar')
-
-        tituloTarea.appendChild(textoTarea)
-
-        articulo.appendChild(tituloTarea)
-
-        btnEliminar.appendChild(textoEliminar)
-
-        articulo.appendChild(btnEliminar)
-
-        contenedor.appendChild(articulo)
+btnGuardar.addEventListener('click', recogerTarea)
 
 
+
+
+function recogerTarea(event) {
+    event.preventDefault()
+
+    var titulo = document.getElementById('tituloTarea').value
+
+    var prioridad = document.getElementById('prioridad').value
+
+
+    if (prioridad != "" && titulo != "") {
+
+        document.getElementById('mensaje').innerText = ""
+
+        addTarea(titulo, prioridad)
+
+        pintarTareas(listaTareas)
+
+
+
+    } else {
+
+        document.getElementById('mensaje').innerText = "Debes completar todos los campos correctamente"
     }
 }
 
-pintarTareas(listaTareas)
