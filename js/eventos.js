@@ -5,6 +5,7 @@ var selectorPrioridad = document.getElementById('prioridadSelect')
 var busqueda = document.getElementById('search')
 
 btnGuardar.addEventListener('click', recogerTarea)
+selectorPrioridad.addEventListener('change', recogerPrioridad)
 busqueda.addEventListener('keyup', recogerBusqueda)
 
 

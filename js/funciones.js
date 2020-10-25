@@ -10,11 +10,45 @@ function addTarea(pTitulo, pPrioridad) {
 function borrarTarea(pId) {
     for (var i = 0; i < listaTareas.length; i++) {
         if (listaTareas[i].idTarea == pId) {
-            var registroBorrar = i
+            var borrar = i
         }
     }
 
-    listaTareas.splice(registroBorrar, 1)// metodo .splice eleimina elementos del array(incluido a si mismo en el numero)
+    listaTareas.splice(borrar, 1)
 
     pintarTareas(listaTareas)
+}
+
+
+function filtrarTareas(pPrioridad) {
+
+    var listaTemporal = new Array()
+
+    for (var i = 0; i < listaTareas.length; i++) {
+
+        if (listaTareas[i].prioridad == pPrioridad) {
+
+            listaTemporal.push(listaTareas[i])
+        }
+    }
+
+    return (listaTemporal)
+}
+
+function busqueda(pPalabraBuscar) {
+
+    var listaTemporal = new Array()
+
+    var busqueda = pPalabraBuscar.toLowerCase()
+
+    for (var i = 0; i < listaTareas.length; i++) {
+
+        if (listaTareas[i].titulo.toLowerCase().indexOf(busqueda) != -1) {
+
+            listaTemporal.push(listaTareas[i])
+        }
+
+    }
+
+    return listaTemporal
 }
